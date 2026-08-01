@@ -12,4 +12,14 @@ class Train extends Model
         'is_on_time' => 'boolean',
         'is_cancelled' => 'boolean',
     ];
+
+    public function getDepartureDay() {
+        $departure_day = $this->departure_date->format('Y M d');
+        return $departure_day;
+    }
+
+    public function getDepartureTime() {
+        $departure_time = $this->departure_date->format('h:i A');
+        return $departure_time;
+    }
 }
