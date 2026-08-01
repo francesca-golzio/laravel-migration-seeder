@@ -1,7 +1,6 @@
 <?php
 
+use App\Http\Controllers\TrainController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [TrainController::class, 'index'])->name('index');
