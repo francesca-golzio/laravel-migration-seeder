@@ -1,8 +1,78 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+// @import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+body {
+  background-image: url('../img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+header {
+  color: #9800e4;
+  font-family: "Bitcount", system-ui;
+  font-weight: 200;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: #000000cc;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+}
+
+mark.cancelled {
+  background-color: #ff0000cc;
+}
+
+mark.on_time {
+  background-color: #63d10acc;
+}
+
+mark.delayed {
+  background-color: #ffaa00cc;
+}
+
+
+.caption_title {
+  padding: 0.75rem;
+  padding-bottom: 0;
+  border-bottom: 1px solid #fff;
+}
+
+div.table_and_caption {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.9rem;
+  box-shadow: 6px -3px 30px 0px #000;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: #000000cc;
+  box-shadow: 0 4px 30px #000;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  margin-top: 2.5rem;
+
+  .img_credits {
+    font-size: 0.6rem;
+  }
+
+  a {
+    color: #e8c8f3;
+    text-decoration: none;
+  }
+}
