@@ -40,32 +40,30 @@
           </thead>
           <tbody>
           @foreach ($trains as $train)
-            @if (!$train->departure_date->isPast())
-              <tr class="">
-                <td><div class="px-2">{{ $train->getDepartureDay() }}</div></td>
-                <td scope="row"><div class="px-2">{{ $train->company }}</div></td>
-                <td><div class="px-2">{{ $train->arrival_station }}</div></td>
-                <td><div class="px-2">{{ $train->getDepartureTime() }}</div></td>
-                <td class="text-center"><div class="px-2">{{ $train->getExpectedDepartureTime() }}</div></td>
-                <td class="text-center"><div class="px-2">{{ $train->platform }}</div></td>
-                <td>
-                  <div class="px-2">
-                  @if ($train->is_cancelled)
-                    <div><mark class="cancelled">cancelled</mark></div>
+            <tr class="">
+              <td><div class="px-2">{{ $train->getDepartureDay() }}</div></td>
+              <td scope="row"><div class="px-2">{{ $train->company }}</div></td>
+              <td><div class="px-2">{{ $train->arrival_station }}</div></td>
+              <td><div class="px-2">{{ $train->getDepartureTime() }}</div></td>
+              <td class="text-center"><div class="px-2">{{ $train->getExpectedDepartureTime() }}</div></td>
+              <td class="text-center"><div class="px-2">{{ $train->platform }}</div></td>
+              <td>
+                <div class="px-2">
+                @if ($train->is_cancelled)
+                  <div><mark class="cancelled">cancelled</mark></div>
+                @else
+                  @if ($train->is_on_time)
+                  <div><mark class="on_time">on time</mark></div>
                   @else
-                    @if ($train->is_on_time)
-                    <div><mark class="on_time">on time</mark></div>
-                    @else
-                    <div><mark class="delayed">delayed</mark></div>
-                    @endif
+                  <div><mark class="delayed">delayed</mark></div>
                   @endif
-                  </div>
-                </td>
-                <td><div class="px-2">{{ $train->getArrivalTime() }}</div></td>
-                <td class="text-center"><div class="px-2">{{ $train->getExpectedArrivalTime() }}</div></td>
-                <td class="text-center"><div class="px-2">{{ $train->carriages }}</div></td>
-              </tr>
-            @endif
+                @endif
+                </div>
+              </td>
+              <td><div class="px-2">{{ $train->getArrivalTime() }}</div></td>
+              <td class="text-center"><div class="px-2">{{ $train->getExpectedArrivalTime() }}</div></td>
+              <td class="text-center"><div class="px-2">{{ $train->carriages }}</div></td>
+            </tr>
           @endforeach  
           </tbody>
         </table>
