@@ -75,7 +75,7 @@ class Train extends Model
     }
 
     public function getPlatform() {
-        if($this->departure_date > (now()->addHours(30))) {
+        if($this->departure_date > (now()->addMinutes(30))) {
             return '-';
         } else {
             return $this->platform;
