@@ -32,15 +32,8 @@ class Train extends Model
     }
 
     public function getArrivalTime() {
-        $now = now();
-    
-        if($this->departure_date > ($now->copy()->addMinutes(30))) {
-            return '-';
-
-        } else {
-            $arrival_time = $this->arrival_date->format('h:i A');
-            return $arrival_time;
-        }
+        $arrival_time = $this->arrival_date->format('h:i A');
+        return $arrival_time;
     }
 
     public function getExpectedDepartureTime() {
