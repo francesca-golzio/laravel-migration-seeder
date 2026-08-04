@@ -24,7 +24,7 @@
           </div>
         </caption>
         <div class="table-responsive">
-          <table class="table table-borderless table-dark table-striped">
+          <table class="table table-borderless table-dark table-striped mb-0">
             <thead>
               <tr>
                 <th scope="col"><div class="px-2">date</div></th>
