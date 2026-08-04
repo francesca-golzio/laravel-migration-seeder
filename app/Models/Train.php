@@ -32,31 +32,48 @@ class Train extends Model
     }
 
     public function getArrivalTime() {
-        $arrival_time = $this->arrival_date->format('h:i A');
-        return $arrival_time;
+        $now = now();
+    
+        if($this->departure_date > ($now->copy()->addMinutes(30))) {
+            return '-';
+
+        } else {
+            $arrival_time = $this->arrival_date->format('h:i A');
+            return $arrival_time;
+        }
     }
 
     public function getExpectedDepartureTime() {
-        if ($this->is_on_time == false && $this->is_cancelled == false) {
+        $now = now();
+    
+        if($this->departure_date > ($now->copy()->addMinutes(30))) {
+            return '-';
 
-            $expected_departure_time_if_delay = 
-                $this->departure_date
-                ->copy()
-                ->addHours($this->delay->hour)
-                ->addMinutes($this->delay->minute)
-                ->addSeconds($this->delay->second)
-                ->format('h:i A');
+        } elseif ($this->is_on_time == false && $this->is_cancelled == false) {
 
-            return $expected_departure_time_if_delay;
+                $expected_departure_time_if_delay = 
+                    $this->departure_date
+                    ->copy()
+                    ->addHours($this->delay->hour)
+                    ->addMinutes($this->delay->minute)
+                    ->addSeconds($this->delay->second)
+                    ->format('h:i A');
+
+                return $expected_departure_time_if_delay;
 
         } else {
             return "-";
         }
-
+        
     }
 
     public function getExpectedArrivalTime() {
-        if ($this->is_on_time == false && $this->is_cancelled == false) {
+                $now = now();
+    
+        if($this->departure_date > ($now->copy()->addMinutes(30))) {
+            return '-';
+            
+        } elseif ($this->is_on_time == false && $this->is_cancelled == false) {
 
             $expected_arrival_time_if_delay = 
                 $this->arrival_date
@@ -87,7 +104,7 @@ class Train extends Model
     public function getStatus() {
         $now = now();
 
-        if ($this->departure_date > ($now->clone()->addMinutes(30))) {
+        if ($this->departure_date > ($now->copy()->addMinutes(30))) {
             
             return "N/D";
 
@@ -102,6 +119,16 @@ class Train extends Model
             } else {
                 return 'delayed';
             }
+        }
+    }
+
+    public function getCoachesNumb() {
+        $now = now();
+
+        if ($this->departure_date > ($now->copy()->addMinutes(30))) {
+            return "-";
+        } else {
+            return $this->carriages;
         }
     }
 

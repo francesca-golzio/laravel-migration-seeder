@@ -67,7 +67,7 @@
                 </td>
                 <td><div class="px-2">{{ $train->getArrivalTime() }}</div></td>
                 <td class="text-center"><div class="px-2">{{ $train->getExpectedArrivalTime() }}</div></td>
-                <td class="text-center"><div class="px-2">{{ $train->carriages }}</div></td>
+                <td class="text-center"><div class="px-2">{{ $train->getCoachesNumb() }}</div></td>
               </tr>
             @endforeach  
             </tbody>
