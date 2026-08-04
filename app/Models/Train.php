@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use function Illuminate\Support\hours;
+use function Illuminate\Support\minutes;
 
 class Train extends Model
 {
@@ -71,4 +73,13 @@ class Train extends Model
         }
 
     }
+
+    public function getPlatform() {
+        if($this->departure_date > (now()->addHours(30))) {
+            return '-';
+        } else {
+            return $this->platform;
+        };
+    }
+    
 }

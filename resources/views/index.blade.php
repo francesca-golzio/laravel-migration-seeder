@@ -49,7 +49,7 @@
                 <td><div class="px-2">{{ $train->arrival_station }}</div></td>
                 <td><div class="px-2">{{ $train->getDepartureTime() }}</div></td>
                 <td class="text-center"><div class="px-2">{{ $train->getExpectedDepartureTime() }}</div></td>
-                <td class="text-center"><div class="px-2">{{ $train->platform }}</div></td>
+                <td class="text-center"><div class="px-2">{{ $train->getPlatform() }}</div></td>
                 <td>
                   <div class="px-2">
                   @if ($train->is_cancelled)
