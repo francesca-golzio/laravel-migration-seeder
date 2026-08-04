@@ -82,4 +82,25 @@ class Train extends Model
         };
     }
     
+    public function getStatus() {
+        $now = now();
+
+        if ($this->departure_date > ($now->clone()->addMinutes(30))) {
+            
+            return "N/D";
+
+        } else {
+
+            if ($this->is_cancelled) {
+                return 'cancelled';
+
+            } elseif ($this->is_on_time) {
+                return 'on_time';
+
+            } else {
+                return 'delayed';
+            }
+        }
+    }
+
 }

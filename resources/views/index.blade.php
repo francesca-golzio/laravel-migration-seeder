@@ -52,14 +52,16 @@
                 <td class="text-center"><div class="px-2">{{ $train->getPlatform() }}</div></td>
                 <td>
                   <div class="px-2">
-                  @if ($train->is_cancelled)
-                    <div><mark class="cancelled">cancelled</mark></div>
-                  @else
-                    @if ($train->is_on_time)
-                    <div><mark class="on_time">on time</mark></div>
-                    @else
-                    <div><mark class="delayed">delayed</mark></div>
-                    @endif
+                  @if ($train->getStatus() == "N/D")
+                    <div>{{ $train->getStatus() }}</div>
+                  @else                    
+                    <div><mark class={{ $train->getStatus() }}>
+                      @if ($train->getStatus() == "on_time")
+                      on time
+                      @else
+                      {{ $train->getStatus() }}
+                      @endif
+                    </mark></div>
                   @endif
                   </div>
                 </td>
