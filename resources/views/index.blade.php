@@ -27,11 +27,12 @@
           <thead>
             <tr>
               <th scope="col"><div class="px-2">date</div></th>
-              <th scope="col"><div class="px-2">company</div></th>
+              <th scope="col"><div class="px-2">train &middot; company</div></th>
+              <th scope="col"><div class="px-2">from</div></th>
               <th scope="col"><div class="px-2">destination</div></th>
               <th scope="col"><div class="px-2">dep</div></th>
-              <th scope="col" class="text-center"><div class="px-2">exp</div></th>
-              <th scope="col class="text-center""><div class="px-2">plat</div></th>
+              <th scope="col"><div class="px-2">exp</div></th>
+              <th scope="col"><div class="px-2">plat</div></th>
               <th scope="col"><div class="px-2">status</div></th>
               <th scope="col"><div class="px-2">arr</div></th>
               <th scope="col" class="text-center"><div class="px-2">exp</div></th>
@@ -42,7 +43,8 @@
           @foreach ($trains as $train)
             <tr class="">
               <td><div class="px-2">{{ $train->getDepartureDay() }}</div></td>
-              <td scope="row"><div class="px-2">{{ $train->company }}</div></td>
+              <td scope="row"><div class="px-2">{{ $train->train_code }} &middot; {{ $train->company }}</div></td>
+              <td><div class="px-2">{{ $train->departure_station }}</div></td>
               <td><div class="px-2">{{ $train->arrival_station }}</div></td>
               <td><div class="px-2">{{ $train->getDepartureTime() }}</div></td>
               <td class="text-center"><div class="px-2">{{ $train->getExpectedDepartureTime() }}</div></td>
