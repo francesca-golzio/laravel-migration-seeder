@@ -14,6 +14,13 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
 }
 
 header {
@@ -32,6 +39,40 @@ header {
   }
 }
 
+
+div.table_and_caption {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
+  box-shadow: 6px -3px 30px 0px #000;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.caption_title {
+  padding: 0.75rem;
+  padding-bottom: 0;
+  border-bottom: 1px solid #fff;
+}
+
+table {
+  color: #fff;
+  background-color: #212529;
+  width: 100%;
+
+  th,
+  td {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+tbody>tr:nth-child(odd) {
+  background-color: #2a2d30;
+}
+
+tr.magical>td {
+  color: #c889ef;
+}
+
 mark.cancelled {
   background-color: #ff0000cc;
 }
@@ -42,19 +83,6 @@ mark.on_time {
 
 mark.delayed {
   background-color: #ffaa00cc;
-}
-
-
-.caption_title {
-  padding: 0.75rem;
-  padding-bottom: 0;
-  border-bottom: 1px solid #fff;
-}
-
-div.table_and_caption {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 0.9rem;
-  box-shadow: 6px -3px 30px 0px #000;
 }
 
 footer {
@@ -72,7 +100,7 @@ footer {
   }
 
   a {
-    color: #e8c8f3;
+    color: #c889ef;
     text-decoration: none;
   }
 }

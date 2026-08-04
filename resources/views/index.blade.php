@@ -23,26 +23,26 @@
             <h3>departures</h3>
           </div>
         </caption>
-        <div class="table-responsive">
-          <table class="table table-borderless table-dark table-striped mb-0">
+        <div>
+          <table class="">
             <thead>
               <tr>
-                <th scope="col"><div class="px-2">date</div></th>
-                <th scope="col"><div class="px-2">train &middot; company</div></th>
-                <th scope="col"><div class="px-2">from</div></th>
-                <th scope="col"><div class="px-2">destination</div></th>
-                <th scope="col"><div class="px-2">dep</div></th>
-                <th scope="col"><div class="px-2">exp</div></th>
-                <th scope="col"><div class="px-2">plat</div></th>
-                <th scope="col"><div class="px-2">status</div></th>
-                <th scope="col"><div class="px-2">arr</div></th>
-                <th scope="col" class="text-center"><div class="px-2">exp</div></th>
-                <th scope="col" class="text-center"><div class="px-2">coach</div></th>
+                <th><div class="px-2 col">date</div></th>
+                <th><div class="px-2 col">train &middot; company</div></th>
+                <th><div class="px-2 col">from</div></th>
+                <th><div class="px-2 col">destination</div></th>
+                <th><div class="px-2 col">dep</div></th>
+                <th><div class="px-2 col">exp</div></th>
+                <th><div class="px-2 col">plat</div></th>
+                <th><div class="px-2 col">status</div></th>
+                <th><div class="px-2 col">arr</div></th>
+                <th class="text-center col"><div class="px-2">exp</div></th>
+                <th class="text-center col"><div class="px-2">coach</div></th>
               </tr>
             </thead>
             <tbody>
             @foreach ($trains as $train)
-              <tr class="">
+              <tr @class(['magical' => $train->departure_station == "King's Cross"])>
                 <td><div class="px-2">{{ $train->getDepartureDay() }}</div></td>
                 <td scope="row"><div class="px-2">{{ $train->train_code }} &middot; {{ $train->company }}</div></td>
                 <td><div class="px-2">{{ $train->departure_station }}</div></td>
