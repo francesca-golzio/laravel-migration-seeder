@@ -22,7 +22,7 @@ class TrainsTableSeeder extends Seeder
             $newTrain = new Train();
 
             $newTrain->company = $faker->randomElement($companies);
-            $newTrain->departure_station = 'King\'s Cross';
+            $newTrain->departure_station = $faker->streetName();
             $newTrain->arrival_station = $faker->streetName();
             $newTrain->departure_date = Carbon::parse($faker->dateTimeBetween('now', '+1 month'));
             $newTrain->arrival_date = (clone $newTrain->departure_date)->addMinutes($faker->numberBetween(30, 300));
